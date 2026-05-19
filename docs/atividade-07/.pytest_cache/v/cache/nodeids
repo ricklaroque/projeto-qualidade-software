@@ -1,0 +1,6 @@
+[
+  "tests/test_01_lucas_navegacao_restaurantes.py::test_lucas_navegacao_e_visualizacao_de_restaurantes",
+  "tests/test_02_henrique_detalhes_restaurante.py::test_henrique_visualizacao_de_detalhes_do_restaurante",
+  "tests/test_03_adriel_adicionar_item_carrinho.py::test_adriel_adicao_de_item_ao_carrinho",
+  "tests/test_04_derick_fluxo_checkout.py::test_derick_fluxo_de_pedido_checkout"
+]
