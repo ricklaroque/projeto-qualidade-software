@@ -20,10 +20,10 @@
 
 # 1. Repositório da Atividade
 
-| Item                | Descrição                                             |
-| ------------------- | ----------------------------------------------------- |
-| Nome do repositório | `localeats-ci-qualidade`                              |
-| Link do repositório | https://github.com/SEU_USUARIO/localeats-ci-qualidade |
+| Item                | Descrição                                               |
+| ------------------- | ------------------------------------------------------- |
+| Nome do repositório | `projeto-qualidade-software`                            |
+| Link do repositório | https://github.com/LarroqueD/projeto-qualidade-software |
 
 **Estrutura de diretórios:**
 
@@ -52,7 +52,7 @@ atividade-12/
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Título da Issue            | `[Feature] Implementar cálculo e validação de pedido no carrinho`                                                                                                                                                  |
 | Objetivo da funcionalidade | Permitir que o usuário adicione itens ao carrinho, calcule o total, aplique descontos e valide o pedido antes de finalizar, garantindo que o carrinho não esteja vazio e que o endereço de entrega seja informado. |
-| Link da Issue              | https://github.com/SEU_USUARIO/localeats-ci-qualidade/issues/1                                                                                                                                                     |
+| Link da Issue              | https://github.com/LarroqueD/projeto-qualidade-software/issues/1                                                                                                                                                   |
 
 ---
 
@@ -210,12 +210,12 @@ Funcionalidade: Cálculo de pedido no LocalEats
 
 # 4. Pipeline de Integração Contínua
 
-| Item                             | Descrição                                                                     |
-| -------------------------------- | ----------------------------------------------------------------------------- |
-| Nome do workflow                 | `Quality Check – LocalEats`                                                   |
-| Evento que dispara a execução    | `push` nas branches `main` e `develop`; `pull_request` na branch `main`       |
-| Link para o arquivo do workflow  | [.github/workflows/quality.yml](.github/workflows/quality.yml)                |
-| Link de uma execução do workflow | https://github.com/SEU_USUARIO/localeats-ci-qualidade/actions/runs/SEU_RUN_ID |
+| Item                             | Descrição                                                                        |
+| -------------------------------- | -------------------------------------------------------------------------------- |
+| Nome do workflow                 | `Quality Check – LocalEats`                                                      |
+| Evento que dispara a execução    | `push` nas branches `main` e `develop`; `pull_request` na branch `main`          |
+| Link para o arquivo do workflow  | [.github/workflows/quality.yml](.github/workflows/quality.yml)                   |
+| Link de uma execução do workflow | https://github.com/LarroqueD/projeto-qualidade-software/actions/runs/28758067865 |
 
 **Código do workflow (`quality.yml`):**
 
@@ -243,11 +243,13 @@ jobs:
           python-version: "3.11"
 
       - name: Instalar dependências
+        working-directory: docs/atividade-12
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Executar testes com relatório JUnit
+        working-directory: docs/atividade-12
         run: |
           pytest tests/ -v --tb=short --junitxml=test-results.xml
 
@@ -256,7 +258,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: test-results.xml
+          path: docs/atividade-12/test-results.xml
 ```
 
 ---
@@ -289,7 +291,7 @@ jobs:
 | ----------------- | ---------------------------------------------------------------------------- |
 | Título do defeito | `[Bug] Desconto acima de 100% não lança exceção – total pode ficar negativo` |
 | Severidade        | Alta                                                                         |
-| Link da Issue     | https://github.com/SEU_USUARIO/localeats-ci-qualidade/issues/2               |
+| Link da Issue     | https://github.com/LarroqueD/projeto-qualidade-software/issues/2             |
 
 **Descrição do defeito:**
 
